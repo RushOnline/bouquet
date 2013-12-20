@@ -41,9 +41,10 @@
 #include "carray.h"
 
 /* defined in the lexical analyzer */
-void yyerror(char *fmt, ...);
-int yywrap();
-int include(char *file, int import);
+extern void yyerror(char *fmt, ...);
+extern int yywrap();
+extern int include(char *file, int import);
+extern int yylex (void);
 
 /* Disable 'unreferenced label' warning from Microsoft Visual C++.
  * MKS Yacc generates various labels that are not used.

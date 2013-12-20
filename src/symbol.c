@@ -45,117 +45,117 @@ typedef struct {
 } reserved_t;
 
 static reserved_t Reserved[]={
-    /* reserved keywords - 0 means not allowed */
-    "struct",	    0,
-    "typedef",	    0,
-    "class",        CLASS,
-    "if",           IF,
-    "else",         ELSE,
-    "do",           DO,
-    "while",        WHILE,
-    "for",          FOR,
-    "goto",         GOTO,
-    "continue",     CONTINUE,
-    "break",        BREAK,
-    "return",       0,
-    "repeat",       REPEAT,
-    "map",          MAP,
-    "extends",      EXTENDS,
-    "switch",       SWITCH,
-    "case",         CASE,
-    "default",      DEFAULT,
-    "bac",          BAC,
-    /* access modifiers */
-    "public",       0,
-    "protected",    0,
-    "private",      0,
-    "package",      0,
-    /* modifiers */
-    "aligned",      ALIGNED,
-    "unsigned",     UNSIGNED,
-    "signed",       SIGNED,
-    "short",        SHORT,
-    "long",         LONG,
-    "const",        CONST,
-    "abstract",     ABSTRACT,
-    "static",       0,
-    "extern",       0,
-    "inline",       0,
-	"little",	    LITTLE,
-	"big",		    BIG,
+	/* reserved keywords - 0 means not allowed */
+	{ "struct",	    0 },
+	{ "typedef",	    0 },
+	{ "class",        CLASS },
+	{ "if",           IF },
+	{ "else",         ELSE },
+	{ "do",           DO },
+	{ "while",        WHILE },
+	{ "for",          FOR },
+	{ "goto",         GOTO },
+	{ "continue",     CONTINUE },
+	{ "break",        BREAK },
+	{ "return",       0 },
+	{ "repeat",       REPEAT },
+	{ "map",          MAP },
+	{ "extends",      EXTENDS },
+	{ "switch",       SWITCH },
+	{ "case",         CASE },
+	{ "default",      DEFAULT },
+	{ "bac",          BAC },
+	/* access modifiers */
+	{ "public",       0 },
+	{ "protected",    0 },
+	{ "private",      0 },
+	{ "package",      0 },
+	/* modifiers */
+	{ "aligned",      ALIGNED },
+	{ "unsigned",     UNSIGNED },
+	{ "signed",       SIGNED },
+	{ "short",        SHORT },
+	{ "long",         LONG },
+	{ "const",        CONST },
+	{ "abstract",     ABSTRACT },
+	{ "static",       0 },
+	{ "extern",       0 },
+	{ "inline",       0 },
+	{ "little",	    LITTLE },
+	{ "big",		    BIG },
 	/* built-in functions */
-    "lengthof",	    LENGTHOF,
-    "isidof",       ISIDOF,
-    "skipbits",     SKIPBITS,
-    "nextbits",     NEXTBITS,
-    "numbits",      NUMBITS,
-    "nextcode",     NEXTCODE,
-    /* end */
-    (char *)NULL,   0
+	{ "lengthof",	    LENGTHOF },
+	{ "isidof",       ISIDOF },
+	{ "skipbits",     SKIPBITS },
+	{ "nextbits",     NEXTBITS },
+	{ "numbits",      NUMBITS },
+	{ "nextcode",     NEXTCODE },
+	/* end */
+	{ (char *)NULL,   0 }
 };
 
 /* these are treated as user-defined types */
 static reserved_t Reserved_Exported[]={
     /* built-in types -- 0 means not allowed */
-    "void",         0,
-    "bit",          BIT,
-    "char",         CHAR,
-    "int",          INT,
-    "float",        FLOAT,
-    "double",       DOUBLE,
+	{ "void",         0 },
+	{ "bit",          BIT },
+	{ "char",         CHAR },
+	{ "int",          INT },
+	{ "float",        FLOAT },
+    { "double",       DOUBLE },
     /* end */
-    (char *)NULL,   0
+    { (char *)NULL,   0 }
 };
 
 /* these are the pragma keywords */
 static reserved_t Reserved_Pragma[]={
-    /* reserved keywords -- 0 means not allowed */
-    "get",	        PRAGMA_GET,
-    "noget",	    PRAGMA_NOGET,
-    "put",	        PRAGMA_PUT,
-    "noput",	    PRAGMA_NOPUT,
-    "putxml",       PRAGMA_PUTXML,
-    "noputxml",	    PRAGMA_NOPUTXML,
-    "trace",	    PRAGMA_TRACE,
-    "notrace",	    PRAGMA_NOTRACE,
-    "line",	        PRAGMA_LINE,
-    "noline",	    PRAGMA_NOLINE,
-    "array",	    PRAGMA_ARRAY,
-    "nullstrings",  PRAGMA_NULLSTRINGS,
-    "nonullstrings",PRAGMA_NONULLSTRINGS,
-    "includes",     PRAGMA_INCLUDES,
-    "noincludes",   PRAGMA_NOINCLUDES,
-    "bitstream",    PRAGMA_BITSTREAM,
-    "prefix",	    PRAGMA_PREFIX,
-    "efunc",	    PRAGMA_ERROR_FUNC,
-    "tfunc",	    PRAGMA_TRACE_FUNC,
-    /*
-    "public",       PRAGMA_PUBLIC,
-    "private",      PRAGMA_PRIVATE,
-    "protected",    PRAGMA_PROTECTED,
-    "package",      PRAGMA_PACKAGE, 
-    */
-    /* end */
-    (char *)NULL,   0
+	/* reserved keywords -- 0 means not allowed */
+	{ "get",	        PRAGMA_GET },
+	{ "noget",	    PRAGMA_NOGET },
+	{ "put",	        PRAGMA_PUT },
+	{ "noput",	    PRAGMA_NOPUT },
+	{ "putxml",       PRAGMA_PUTXML },
+	{ "noputxml",	    PRAGMA_NOPUTXML },
+	{ "trace",	    PRAGMA_TRACE },
+	{ "notrace",	    PRAGMA_NOTRACE },
+	{ "line",	        PRAGMA_LINE },
+	{ "noline",	    PRAGMA_NOLINE },
+	{ "array",	    PRAGMA_ARRAY },
+	{ "nullstrings",  PRAGMA_NULLSTRINGS },
+	{ "nonullstrings",PRAGMA_NONULLSTRINGS },
+	{ "includes",     PRAGMA_INCLUDES },
+	{ "noincludes",   PRAGMA_NOINCLUDES },
+	{ "bitstream",    PRAGMA_BITSTREAM },
+	{ "prefix",	    PRAGMA_PREFIX },
+	{ "efunc",	    PRAGMA_ERROR_FUNC },
+	{ "tfunc",	    PRAGMA_TRACE_FUNC },
+	/*
+	{ "public",       PRAGMA_PUBLIC },
+	{ "private",      PRAGMA_PRIVATE },
+	{ "protected",    PRAGMA_PROTECTED },
+	{ "package",      PRAGMA_PACKAGE },
+	*/
+	/* end */
+	{ (char *)NULL,   0 }
 };
 
 /* these are the BAC keywords */
 static reserved_t Reserved_BAC[]={
-    /* reserved keywords -- 0 means not allowed */
-    "prec",	        BAC_PREC,
-    "ooc",	        BAC_OOC,
-    "soc",	        BAC_SOC,
-    "te",	        BAC_TE,
-    "norm",         BAC_RENORM,
-    "bs",	        BAC_BS,
-    "init",	        BAC_INIT,
-    "end",	        BAC_END,
-    "rtable",	    BAC_RTABLE,
-    "nexti",	    BAC_NEXTI,
-    "trans",        BAC_TRANS,
-    "exch",         BAC_EXCH,
-    /* end */
-    (char *)NULL,   0
+	/* reserved keywords -- 0 means not allowed */
+	{ "prec",	        BAC_PREC },
+	{ "ooc",	        BAC_OOC },
+	{ "soc",	        BAC_SOC },
+	{ "te",	        BAC_TE },
+	{ "norm",         BAC_RENORM },
+	{ "bs",	        BAC_BS },
+	{ "init",	        BAC_INIT },
+	{ "end",	        BAC_END },
+	{ "rtable",	    BAC_RTABLE },
+	{ "nexti",	    BAC_NEXTI },
+	{ "trans",        BAC_TRANS },
+	{ "exch",         BAC_EXCH },
+	/* end */
+	{ (char *)NULL,   0 }
 };
 
 /*
@@ -756,7 +756,7 @@ const char *s_op2str(int op)
  *      then the dimx_end variable becomes useless.
  */
 
-static const _dimx_flag = 0xFFFFFFFF;
+static const int _dimx_flag = 0xFFFFFFFF;
 
 void s_cur_class_dimx_nonpartial(int dim, int val)
 {

@@ -73,7 +73,7 @@ static void c_new_class(symbol_t *sp, int dims)
 /* resolve a polymorphic get/putxml: create a class based on the value of the probed id */
 static void c_var_decl_class_poly(symbol_t *sp, node_t *param, int dims, node_t **dim, int xml)
 {
-    int numIDs, i;
+    int i;
 
     /* if non-pure and has ID, check its value */
     if (sp->ptype->id->init == NULL)
@@ -107,7 +107,7 @@ static void c_var_decl_class_poly(symbol_t *sp, node_t *param, int dims, node_t 
     /* Generate comparison statements with IDs of this and all derived classes.
      * We use 'if's so that float and double can be used as IDs.
      */
-    numIDs = c_var_decl_get_class_id(sp, dims, sp->ptype, 0, xml);
+    c_var_decl_get_class_id(sp, dims, sp->ptype, 0, xml);
 
     /* generate default statement */
     c_outi("else {\n");

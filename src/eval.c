@@ -880,44 +880,48 @@ node_t *eval_array(node_t *expr)
     ret = expr;
 
     /* if not array initializer, great; just return the single initial value but only if it is a literal */
-    if (sp->init->op != ARRAY) if (is_literal(sp->init->op)) ret = sp->init;
-    else {
-        /* now we need to find the initializing element */
+    if (sp->init->op != ARRAY)
+    {
+		if (is_literal(sp->init->op)) {
+			ret = sp->init;
+		} else {
+			/* now we need to find the initializing element */
 
-        /* first extract indices */
-        dim_idx = (int *)getmem(sp->dims*sizeof(int));
-        /* look for '[' */
-        n = expr;
-        i = 0;
-        /* descent to the base of the array, counting levels */
-        while (n->op == '[') {
-            if (n->right.np == NULL)
-                fatal("Internal error E%d: Unexpected end of array expression", __LINE__);
-            if (n->right.np->op != INT_LITERAL)
-                fatal("Internal error E%d: Expected integer literal array index", __LINE__);
-            dim_idx[i] = n->right.np->left.ival;
-            n = n->left.np;
-            i++;
-        }
-        /* now construct dim values array */
-        dim_values = (int *)getmem(sp->dims*sizeof(int));
-        for (i=0; i<sp->dims; i++) {
-            n = sp->dim[i];
-            if (n == NULL)
-                fatal("Internal error E%d: Unexpected end of dimensioning array", __LINE__);
-            if (n->left.np == NULL)
-                fatal("Internal error E%d: Array expression without value", __LINE__);
-            if (n->left.np->op != INT_LITERAL) goto eval_array_end;
-            dim_values[i]=n->left.np->left.ival;
-        }
-        /* get the initializing element (we are done with 'n', so it is reused here) */
-        n = c_array_get_init(sp, dim_values, dim_idx, sp->init);
-        if (n == NULL) fatal("Internal error E%d: Could not find array element", __LINE__);
-        if (is_literal(n->op)) {
-            ret = node_dup(n);
-            ret->eval = expr;
-        }
-        /* else fall below */
+			/* first extract indices */
+			dim_idx = (int *)getmem(sp->dims*sizeof(int));
+			/* look for '[' */
+			n = expr;
+			i = 0;
+			/* descent to the base of the array, counting levels */
+			while (n->op == '[') {
+				if (n->right.np == NULL)
+					fatal("Internal error E%d: Unexpected end of array expression", __LINE__);
+				if (n->right.np->op != INT_LITERAL)
+					fatal("Internal error E%d: Expected integer literal array index", __LINE__);
+				dim_idx[i] = n->right.np->left.ival;
+				n = n->left.np;
+				i++;
+			}
+			/* now construct dim values array */
+			dim_values = (int *)getmem(sp->dims*sizeof(int));
+			for (i=0; i<sp->dims; i++) {
+				n = sp->dim[i];
+				if (n == NULL)
+					fatal("Internal error E%d: Unexpected end of dimensioning array", __LINE__);
+				if (n->left.np == NULL)
+					fatal("Internal error E%d: Array expression without value", __LINE__);
+				if (n->left.np->op != INT_LITERAL) goto eval_array_end;
+				dim_values[i]=n->left.np->left.ival;
+			}
+			/* get the initializing element (we are done with 'n', so it is reused here) */
+			n = c_array_get_init(sp, dim_values, dim_idx, sp->init);
+			if (n == NULL) fatal("Internal error E%d: Could not find array element", __LINE__);
+			if (is_literal(n->op)) {
+				ret = node_dup(n);
+				ret->eval = expr;
+			}
+			/* else fall below */
+		}
     }
 
 eval_array_end:

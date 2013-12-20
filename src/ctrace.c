@@ -254,13 +254,14 @@ void c_trace_var_map(symbol_t *sp, symbol_t *map, int dims, int usenext, int inc
     
     c_out("\"%s", sp->name);
 
-    if (dims > 0)
+    if (dims > 0) {
         if (cpp()) 
             for (i=0; i<dims; i++) 
                 c_out("[%%d]");
         else 
             for (i=0; i<dims; i++) 
                 c_out("[\" + %s + \"]", c_gentmp_dim(i));
+    }
   
     /* put a '*' if it uses next */
     if (usenext) 
@@ -325,14 +326,15 @@ void c_trace_class_map(symbol_t *sp, symbol_t *map, int dims, int usenext)
         c_outi("%s(%sbs.getpos()-%sparse, %sparse, (%sint)%scode, ", trace_func, prefix, prefix, prefix, s_mods2str(M_UNSIGNED), prefix);
     
     c_out("\"%s", sp->name);
-    if (cpp()) 
+    if (cpp()) {
         if (dims > 0) 
             for (i=0; i<dims; i++) 
                 c_out("[%%d]");
-    else 
+    } else {
         if (dims > 0) 
             for (i=0; i<dims; i++) 
                 c_out("[\" + %s + \"]", c_gentmp_dim(i));
+    }
     
     /* put a '*' if it uses next */
     if (usenext) 

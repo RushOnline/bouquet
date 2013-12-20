@@ -52,10 +52,10 @@ void yycomment(char *end);
 verbatim_t *yyverbatim(char *end);
 
 /* sometimes yywrap is defined as a macro */
-#undef yywrap
+/* #undef yywrap */
 
 /* disable 'unreferenced label' warning from Visual C++ */
-#pragma warning(disable : 4102)
+// #pragma warning(disable : 4102)
 
 /* Set when processing pragma statements.
  * Suppresses regular symbol lookup -- see getsymbol() below.
@@ -66,6 +66,9 @@ static int pragma_active = 0;
 int yyparse();
 
 %}
+
+%option nounput
+%option yylineno
 
 DIGIT           [0-9]
 LETTER          [a-zA-Z]

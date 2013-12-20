@@ -1478,8 +1478,8 @@ list_t* check_map_class_value(symbol_t* map, list_t* val)
         if (class_stmts == NULL) return val;
 
 		if (val_sub->e1->type != class_stmts->sp->ptype->ident 
-            && !(val_sub->e1->type == DOUBLE && class_stmts->sp->ptype->ident == FLOAT 
-                 || val_sub->e1->type == FLOAT && class_stmts->sp->ptype->ident == DOUBLE)) {
+            && !(val_sub->e1->type == DOUBLE && (class_stmts->sp->ptype->ident == FLOAT)
+                 || (val_sub->e1->type == FLOAT) && (class_stmts->sp->ptype->ident == DOUBLE))) {
 			yyerror("Invalid map value type '%s' for map '%s'", node2string(val_sub->e1), map->name);
 			return val;
 		}
@@ -1521,7 +1521,6 @@ void check_map_esc_class_value(symbol_t *map, list_t *val)
 {
     list_t* class_stmts = find_class_stmts(map->ptype);
     list_t* val_sub = val;
-	int verbatim_only = 1;
 	
 	while (val_sub != NULL) {
 		if (class_stmts == NULL) {

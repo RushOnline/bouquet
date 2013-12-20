@@ -510,11 +510,12 @@ symbol_t* set_var(symbol_t*     var,
             check_double_parse(var, parse);
 #endif
         /* if both parse and init are literals, we can check that the init fits within the parse size (also checks double/float constraints) */
-        if (init != NULL && is_literal(parse->op))
+        if (init != NULL && is_literal(parse->op)) {
             if (is_literal(init->op))
                 check_fit(var, init, parse);
             else if (init->op == ARRAY)
                 check_fit_array(var, init, parse);
+        }
         
         return var;
     }
@@ -619,9 +620,10 @@ symbol_t* set_var(symbol_t*     var,
             }
 
         /* if both parse and init are literals, we can check that the init fits within the parse size. */
-        if (parse != NULL && is_literal(parse->op))
+        if (parse != NULL && is_literal(parse->op)) {
             if ((is_literal(init->op) || var->range)) check_fit(var, init, parse);
             else if (init->op == ARRAY) check_fit_array(var, init, parse);
+        }
 
         /* set the variable's initial value *only* if it is a constant */
         if ((mod & M_CONST) || var->range) var->init = init;

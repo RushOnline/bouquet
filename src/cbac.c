@@ -20,7 +20,54 @@
 
 
 #include "cdef.h"
- 
+
+/* the BAC parameters */
+static int prec;        /* the precision used (in bits) */
+static ooc_t ooc;       /* the OOC */
+static soc_t soc;       /* the SOC */
+static te_t te;         /* the TE assignment */
+
+/* renormalization parameters */
+static unsigned int r_min;  /* renorm whenever R < r_min; 0 is used for the CACM implementation */
+static renorm_t r_type;     /* the renormalization type: straightforward or semi-quasi */
+static int r_nb;            /* the min number of bits to output at a time */
+
+static co_t co;         /* the CO problem prevention method used */
+
+/* bit-stuffing parameters */
+static int bs_n1;       /* the num of 1 bits accounted when applying stuffing */
+static int bs_n0;       /* the num of 0 bits stuffed */
+static int bs_ns;       /* the num of spacer bits used */
+
+/* initialization parameters */
+static int l_init;      /* the init L value */
+static unsigned int r_init;
+                        /* the init R value */
+static int v_init;      /* the num of bits read for the init V / D value */
+
+/* last symbol disambiguation parameters */
+static int end_bits;    /* the num of bits used to disambiguate the last symbol; 0 is used for the optimal method */
+static end_t end_type;  /* the special actions needed by the end param */
+
+/* rtable parameters; the table lists R values for the LPS or the symbol 0 */
+static int rt_idx1;     /* the number of rows in the table */
+static int rt_idx2;     /* the number of columns in the table */
+static char *rt_name;   /* the table name */
+
+/* nexti parameter */
+static char *ni_name;   /* the nexti table name */
+
+static trans_t trans;   /* indicates when to apply transition */
+static int exch;        /* indicates whether to apply conditional exchange */
+
+
+static unsigned int qtr_plus_2; /* QTR + 2 */
+
+/* the below variables are used to obtain the col index if rt_idx2 > 1 */
+static unsigned int fixed_msb_r;
+static unsigned int m_bits;
+
+
 static const unsigned int PREC_BITS[33] = { 
           0,
 /* prec = 1,       2,           3,         4,          5,          6,          7,          8 */
