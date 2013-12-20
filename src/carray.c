@@ -48,17 +48,15 @@ void c_array_decl(symbol_t *sp, int dims, node_t **dim)
     int i;
     /* always generate arrays with max size */
     for (i=0; i<dims; i++) {
-        if (cpp())
-            c_out("[%d]", max_array_size);
-#if 0
-        	if (sp->modifiers & M_CONST) {
-                c_out("[1]");
+        if (cpp()) {
+            if ( dim[i]->left.np->op == INT_LITERAL) {
+                c_out("[%d]", dim[i]->left.np->left.ival );
         	} else {
                 c_out("[%d]", max_array_size);
         	}
-#endif
-		else if (java()) 
+        } else if (java()) {
             c_out("[]");
+        }
     }
     if (java() && dims > 0) {
         if (sp->ptype->ident == BIT) 
