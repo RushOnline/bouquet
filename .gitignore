@@ -1,0 +1,11 @@
+java
+/samples/xml
+
+*.a
+*.o
+
+# MSVC garbage
+*.dsp
+*.dsw
+*.opt
+*.ncb
