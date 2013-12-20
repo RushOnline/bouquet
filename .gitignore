@@ -3,9 +3,24 @@ java
 
 *.a
 *.o
+*.swp
+
+/bin
+/src/flavorc/flavorc
+/config.*
+Makefile
+Makefile.in
+autoscan.log
+
+# Eclipse garbage
+/.cproject
+/.project
+/.settings
 
 # MSVC garbage
 *.dsp
 *.dsw
 *.opt
 *.ncb
+*.lib
+*.dll
