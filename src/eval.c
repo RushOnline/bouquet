@@ -22,6 +22,7 @@
 /* eval.c */
 
 #include <stdio.h>
+#include <stdlib.h>
 
 #include "port.h"
 #include "util.h"

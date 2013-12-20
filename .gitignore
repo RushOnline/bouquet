@@ -17,6 +17,16 @@ java
 Makefile
 Makefile.in
 autoscan.log
+.autotools
+aclocal.m4
+configure
+depcomp
+install-sh
+missing
+.deps
+src/bouquet
+lexer.c
+parser.c
 
 # Eclipse garbage
 /.cproject

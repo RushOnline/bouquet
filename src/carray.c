@@ -22,6 +22,7 @@
 /* carray.c */
 
 #include "cdef.h"
+#include <stdlib.h>
 
 
 /* generate a tmp variable name for array dimensions (uses static memory) -- _F_dim0 for i = 0 */

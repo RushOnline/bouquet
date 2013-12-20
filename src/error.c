@@ -26,6 +26,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
+#include <stdlib.h>
 
 #include "port.h"
 #include "globals.h"
