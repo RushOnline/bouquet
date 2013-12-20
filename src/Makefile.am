@@ -19,12 +19,12 @@ bouquet_SOURCES= \
 	cxml.c \
 	error.c \
 	eval.c \
-	lex.yy.c \
 	main.c \
 	ptree.c \
 	symbol.c \
 	util.c \
-	y.tab.c
+	lexer.l \
+	parser.y
 
 lt-relink-executables:
 	@echo 'relinking...'

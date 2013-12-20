@@ -1,12 +1,18 @@
 java
 /samples/xml
+/bin
+/src/flavorc/flavorc
+
 
 *.a
 *.o
 *.swp
 
-/bin
-/src/flavorc/flavorc
+
+# Autotools garbage
+
+/autom4te.cache
+/ylwrap
 /config.*
 Makefile
 Makefile.in
