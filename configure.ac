@@ -19,6 +19,10 @@ if test "x$LEX" != xflex; then
     AC_SUBST([LEXLIB], [''])
 fi
 
+AC_DEFINE(YYTEXT_POINTER, 1,
+            [Define if lex declares yytext as a char * by default,
+             not a char[].])
+             
 AC_CONFIG_FILES(Makefile src/Makefile)
 AC_OUTPUT
 

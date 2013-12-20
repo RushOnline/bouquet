@@ -37,7 +37,7 @@
 #include "error.h"
 #include "compile.h"
 
-#include "y.tab.h"
+#include "parser.h"
 
 /* symbol lookup */
 static int getsymbol(void);

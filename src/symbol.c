@@ -32,7 +32,7 @@
 #include "util.h"
 #include "error.h"
 
-#include "y.tab.h"
+#include "parser.h"
 
 /*
  * Reserved words and types

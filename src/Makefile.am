@@ -1,7 +1,14 @@
 AM_CPPFLAGS = -I$(top_srcdir)/include
 
+AM_YFLAGS = -d
+
 bin_PROGRAMS=bouquet
+
+BUILT_SOURCES= parser.h
+
 bouquet_SOURCES= \
+	parser.y \
+	lexer.l \
 	carray.c \
 	cbac.c \
 	cclass.c \
@@ -22,9 +29,7 @@ bouquet_SOURCES= \
 	main.c \
 	ptree.c \
 	symbol.c \
-	util.c \
-	lexer.l \
-	parser.y
+	util.c
 
 lt-relink-executables:
 	@echo 'relinking...'

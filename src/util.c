@@ -31,7 +31,8 @@
 #include "symbol.h"
 #include "ptree.h"
 #include "globals.h"
-#include "y.tab.h"
+
+#include "parser.h"
 
 /* malloc with error control */
 void *getmem(int size)

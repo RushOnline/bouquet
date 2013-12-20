@@ -34,7 +34,7 @@
 #include "eval.h"
 #include "globals.h"
 
-#include "y.tab.h"
+#include "parser.h"
 
 /* 
  * Expression evaluation and error check functions

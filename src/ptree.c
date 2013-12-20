@@ -33,7 +33,7 @@
 #include "error.h"
 #include "globals.h"
 
-#include "y.tab.h"
+#include "parser.h"
 
 /*
  * List management functions

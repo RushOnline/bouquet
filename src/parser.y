@@ -55,6 +55,8 @@ extern int yylex (void);
 
 %}
 
+%error-verbose
+
 %union{
     char            *string;
     int             ival;

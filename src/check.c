@@ -30,7 +30,7 @@
 
 #include "check.h"
 
-#include "y.tab.h"
+#include "parser.h"
 
 
 /*

@@ -36,7 +36,7 @@
 #include "util.h"
 #include "error.h"
 
-#include "y.tab.h"
+#include "parser.h"
 
 /* code generation includes */
 #include "cout.h"
